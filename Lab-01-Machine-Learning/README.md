@@ -9,6 +9,9 @@ Programming Language: Python
 
 [Lab01_Sentiment_Analysis.ipynb](notebook/Lab01_Sentiment_Analysis.ipynb)
 
+### Dataset
+The Sentiment Labelled Sentences dataset from the UCI Machine Learning Repository was used by me for this task . It contains 3,000 short reviews from Amazon, IMDB and Yelp and each labelled as positive or negative.
+
 ## 2. Objective
 
 - The purpose of this practical was to practise fundamental Natural Language Processing (NLP) tasks using sentiment analysis.

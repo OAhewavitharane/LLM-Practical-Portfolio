@@ -32,3 +32,38 @@ chunks = text_splitter.split_text(text)
 print("Total chunks:", len(chunks))          # Check the number of chunks
 print("First chunk:")
 print(chunks[0])
+
+
+# Create embeddings for each chunk
+embeddings = []
+
+for chunk in chunks:
+    response = ollama.embed(
+        model="qwen3-embedding:0.6b",
+        input=chunk
+    )
+
+    embeddings.append(response["embeddings"][0])
+
+print("Embeddings created:", len(embeddings))
+
+
+client = chromadb.PersistentClient(                      # Create a ChromaDB client
+    path="Lab-05-RAG-Pipeline/chroma_db"
+)
+
+collection = client.get_or_create_collection(            # Create a collection to store the PDF data
+    name="nsbm_guide"
+)
+
+# Store the chunks 
+for i, chunk in enumerate(chunks):
+    collection.add(
+        ids=[str(i)],
+        documents=[chunk],
+        embeddings=[embeddings[i]]
+    )
+
+print("PDF data stored in ChromaDB")
+
+

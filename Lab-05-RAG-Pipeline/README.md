@@ -19,4 +19,8 @@ This project implements a Retrieval-Augmented Generation (RAG) pipeline using un
 
 The University AI Assistant answers questions based on information retrieved from university documents.
 
-![University AI Assistant](screenshots/RAG-chatbot-AI-assistance.png)
+
+
+![University AI Assistant](screenshots/RAG-chatbot-AI-assistant.png)
+
+

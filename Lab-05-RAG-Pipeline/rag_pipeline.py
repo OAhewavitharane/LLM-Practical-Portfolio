@@ -33,9 +33,19 @@ results = collection.query(
 context = "\n\n".join(results["documents"][0])
 
 
- 
-# Generate an answer
-prompt = "Answer the question using this context: " + context + "\nQuestion: " + question
+ # generate an answer
+
+prompt = f"""
+Answer using only the context.
+If the answer is not in the context, say you
+couldn't find it in the document.
+
+Context: {context}
+
+Question: {question}
+
+Answer:
+"""
 
 answer = ollama.generate(
     model="llama3.2:3b",

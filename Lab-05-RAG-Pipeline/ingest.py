@@ -19,3 +19,16 @@ for page in reader.pages:
 
 print("PDF loaded successfully")
 print("Total characters:", len(text))
+
+
+# Split the PDF text into smaller chunks
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200
+)
+
+chunks = text_splitter.split_text(text)
+
+print("Total chunks:", len(chunks))          # Check the number of chunks
+print("First chunk:")
+print(chunks[0])

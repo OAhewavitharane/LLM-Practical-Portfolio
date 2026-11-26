@@ -2,7 +2,8 @@
 
 ## Laboratory session
 
-Lab 05, RAG architecture. I built a local question-answering assistant that answers from university PDFs, then extended it to read several PDFs and to take PDFs uploaded by the user. The group activity for this lab is at the end of this page, under [Group activity](#group-activity-context-aware-rag-group-2); its code is in the `group-activity` folder.
+Lab 05, RAG architecture. 
+I built a local question-answering assistant that answers from university PDFs, then extended it to read several PDFs and to take PDFs uploaded by the user. The group activity for this lab is at the end of this page, under [Group activity](#group-activity-context-aware-rag-group-2); its code is in the `group-activity` folder.
 
 ## Objective
 

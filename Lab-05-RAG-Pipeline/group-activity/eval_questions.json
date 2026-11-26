@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "question": "List all the modules in the MSc in IT programme with their module codes.",
+    "reference_answer": "MSC5101 Problem Solving and Programming, MSC5102 Software Development Paradigms and Processes, MSC5103 Systems Analysis and Design, MSC5104 Modern Operating Systems, MSC5105 Information Management and Retrieval, MSC5201 Data Communication and Computer Networks, MSC5202 Web and Mobile Application Development, MSC5203 Governance and Management in ICT, MSC5204 Integrated Project, MSC6101 Software Quality Engineering, MSC6102 Research Methodology, MSC6103 Internet of Things, MSC6104 Big Data Analytics, MSC6105 Artificial Intelligence, MSC6201 Research Project.",
+    "page": 7,
+    "facts": [["MSC5101"], ["MSC5102"], ["MSC5103"], ["MSC5104"], ["MSC5105"], ["MSC5201"], ["MSC5202"], ["MSC5203"], ["MSC5204"], ["MSC6101"], ["MSC6102"], ["MSC6103"], ["MSC6104"], ["MSC6105"], ["MSC6201"]]
+  },
+  {
+    "id": 2,
+    "question": "What is the minimum and maximum period to complete the MSc in IT?",
+    "reference_answer": "The minimum period of study is two years and the maximum period for completion is five years.",
+    "page": 12,
+    "facts": [["two (2) years", "2 years", "two years"], ["five (5) years", "5 years", "five years"]]
+  },
+  {
+    "id": 3,
+    "question": "What grade point does a student need to pass each module?",
+    "reference_answer": "A minimum grade point of 2.30 (C+) in each taught course module, including the integrated project and the research project.",
+    "page": 13,
+    "facts": [["2.30", "2.3"]]
+  },
+  {
+    "id": 4,
+    "question": "How many credits are needed for the MSc in IT award and how are they split?",
+    "reference_answer": "60 credits: 39 from the taught course modules, 6 from the Integrated Project and 15 from the Research Project.",
+    "page": 14,
+    "facts": [["60"], ["39"], ["15"]]
+  },
+  {
+    "id": 5,
+    "question": "How many credits does a student need to exit after one year with the MIT award?",
+    "reference_answer": "30 credits: 24 from the taught course modules and 6 from the Integrated Project, with a grade point of 2.30 or above in each.",
+    "page": 14,
+    "facts": [["30"], ["24"]]
+  },
+  {
+    "id": 6,
+    "question": "What GPA is needed for a distinction pass?",
+    "reference_answer": "An overall Grade Point Average of 3.70.",
+    "page": 14,
+    "facts": [["3.70", "3.7"]]
+  },
+  {
+    "id": 7,
+    "question": "How many times can a candidate take the examination?",
+    "reference_answer": "A candidate cannot take the examination on more than three occasions.",
+    "page": 13,
+    "facts": [["three occasions", "3 occasions", "three times", "3 times", "three attempts", "3 attempts"]]
+  },
+  {
+    "id": 8,
+    "question": "Does NSBM refund the fees paid for the programme?",
+    "reference_answer": "No. NSBM does not repay or refund fees, except when the programme is not conducted because too few candidates registered; then fees other than the application fee are repaid.",
+    "page": 12,
+    "facts": [["not repay", "not refund", "no refund", "not refundable", "non-refundable", "will not be refunded"]]
+  },
+  {
+    "id": 9,
+    "question": "What is the medium of instruction for the programme?",
+    "reference_answer": "English.",
+    "page": 12,
+    "facts": [["English"]]
+  },
+  {
+    "id": 10,
+    "question": "What range of marks gives an A- grade and what grade point is it?",
+    "reference_answer": "80-84 marks, grade point 3.70.",
+    "page": 13,
+    "facts": [["80-84", "80 - 84", "80 to 84"], ["3.70", "3.7"]]
+  },
+  {
+    "id": 11,
+    "question": "How many credits is the Research Project and what does the student have to do in it?",
+    "reference_answer": "15 credits. The student undertakes an individual research project on an approved topic that addresses a significant computing related problem.",
+    "page": 9,
+    "facts": [["15"], ["individual research project", "individual project"]]
+  },
+  {
+    "id": 12,
+    "question": "Who appoints the programme coordinator?",
+    "reference_answer": "The Vice Chancellor, on the recommendation of the Dean of the faculty.",
+    "page": 11,
+    "facts": [["Vice Chancellor"], ["Dean"]]
+  },
+  {
+    "id": 13,
+    "question": "How long are applications for the programme kept open?",
+    "reference_answer": "For a minimum period of one calendar month.",
+    "page": 11,
+    "facts": [["one calendar month", "1 calendar month", "one month", "1 month"]]
+  },
+  {
+    "id": 14,
+    "question": "How long is a student's registration valid?",
+    "reference_answer": "Twelve months from the date of registration.",
+    "page": 12,
+    "facts": [["twelve (12) months", "12 months", "twelve months"]]
+  }
+]

@@ -16,6 +16,11 @@ while True:
     results = collection.query(query_embeddings=[question_embedding], n_results=3)
     context = "\n\n".join(results["documents"][0])
 
+    for doc in results["documents"][0]:
+      
+     print("  retrieved:", doc[:80].replace("\n", " "))
+
+
 
     prompt = f"""Answer using only the context.
 If the answer is not in the context, say you couldn't find it in the document.

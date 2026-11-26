@@ -1,15 +1,11 @@
-
 import streamlit as st
 import chromadb
 import ollama
-
 from pypdf import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
-# Check if the retrieved text can answer the question
 def check_relevance(question, context):
-
     prompt = f"""Check if the context contains useful information to answer the question.
 
 Question:
@@ -27,29 +23,31 @@ def search_documents(collection, question_embedding, number):
     if collection.count() == 0:
         return []
 
-    number = min(number, collection.count())    # chroma complains if you ask for more results than it has stored
+    # chroma complains if you ask for more results than it has stored
+    number = min(number, collection.count())
     results = collection.query(query_embeddings=[question_embedding], n_results=number)
 
     documents = results["documents"][0]
     metadatas = results["metadatas"][0]
-
-    found_documents = []
+    distances = results["distances"][0]
 
     found_documents = []
     for i, document in enumerate(documents):
         source = "NSBM Guide"
         if metadatas[i] and "source" in metadatas[i]:
             source = metadatas[i]["source"]
-        found_documents.append("Source: " + source + "\n" + document)
+        found_documents.append((distances[i], "Source: " + source + "\n" + document))
     return found_documents
 
 
-# Prepare the retrieved text
 def prepare_context(question_embedding, number):
+    # search both collections, then keep only the closest chunks overall
+    found = search_documents(guide_collection, question_embedding, number)
+    found += search_documents(upload_collection, question_embedding, number)
+    found.sort()
+
     context = ""
-    for document in search_documents(guide_collection, question_embedding, number):
-        context += document + "\n\n"
-    for document in search_documents(upload_collection, question_embedding, number):
+    for distance, document in found[:number]:
         context += document + "\n\n"
     return context
 
@@ -58,19 +56,13 @@ st.set_page_config(page_title="University AI Assistant", page_icon="🎓")
 st.title("🎓 University AI Assistant")
 st.caption("Ask questions based on university documents")
 
-
-# Connect to ChromaDB
 client = chromadb.PersistentClient(path="Lab-05-RAG-Pipeline/chroma_db")
 guide_collection = client.get_collection(name="nsbm_guide")
 upload_collection = client.get_or_create_collection(name="user_uploaded_pdfs")
 
-
-# Keep the chat messages
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-
-# PDF upload section
 with st.sidebar:
     st.header("University Documents")
     uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True)
@@ -112,39 +104,29 @@ with st.sidebar:
         else:
             st.warning("No readable text found in the PDFs.")
 
-# Show previous messages
 for message in st.session_state.messages:
-
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-
-# Get the user's question
 question = st.chat_input("Ask your university question...")
-
 
 if question:
     st.session_state.messages.append({"role": "user", "content": question})
     with st.chat_message("user"):
         st.write(question)
 
-    # Create an embedding for the question
     response = ollama.embed(model="qwen3-embedding:0.6b", input=question)
     question_embedding = response["embeddings"][0]
 
-
-    context = prepare_context(question_embedding, 3)
+    context = prepare_context(question_embedding, 5)
     is_relevant = check_relevance(question, context)
 
-
-    # if the first 3 chunks don't help, try again with more
+    # if the first 5 chunks don't help, try again with more
     if not is_relevant:
         st.info("Trying to find better information...")
-        context = prepare_context(question_embedding, 6)
+        context = prepare_context(question_embedding, 10)
         is_relevant = check_relevance(question, context)
 
-
-    # Generate the answer
     with st.chat_message("assistant"):
         with st.spinner("Finding the answer..."):
             if is_relevant and context.strip():

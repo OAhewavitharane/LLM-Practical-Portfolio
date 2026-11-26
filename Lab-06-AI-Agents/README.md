@@ -54,36 +54,6 @@ All five agents use the same loop:
 
 In Part A the result goes back to the model as a `ToolMessage`, and a second call without tools writes the answer. From Part B on, the answer is written from a normal prompt with the tool results pasted in, the same way the Lab 5 RAG answers from chunks. Observation 6 explains why I changed it.
 
-This is the final agent from Part D, which has everything from the earlier parts:
-
-```mermaid
-flowchart TD
-    msg["Student's message"] --> extract["Fact extraction<br/>llama3.2:3b, no tools"]
-    extract -->|"The user's name is ..."| db[("SQLite<br/>student_memory.db")]
-    db -->|latest 20 facts| wm["Working memory<br/>instructions + facts + recent chat + message"]
-    stm["Short-term memory<br/>last 10 messages"] --> wm
-    msg --> wm
-    wm --> pick["llama3.2:3b with 5 tools"]
-    pick -->|no tool needed| answer["Answer"]
-    pick -->|tool_calls| run["Run the tools"]
-    run --> calc["calculator"]
-    run --> mem["search_student_memory"]
-    run --> rag["search_university_knowledge"]
-    run --> today["get_todays_schedule"]
-    run --> create["create_calendar_event"]
-    mem -.-> db
-    rag -.-> chroma[("Lab 5 ChromaDB<br/>nsbm_guide, top 5 chunks")]
-    today -.-> gcal["Google Calendar API"]
-    create -.-> gcal
-    calc --> results["Tool results, labelled<br/>with tool name and arguments"]
-    mem --> results
-    rag --> results
-    today --> results
-    create --> results
-    results --> write["Answer prompt<br/>facts + tool results"]
-    write --> answer
-    answer --> stm
-```
 
 ### Part A: calculator_agent.py
 

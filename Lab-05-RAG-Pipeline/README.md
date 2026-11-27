@@ -46,7 +46,7 @@ Reads every PDF in `data/`, joins the text of each file and cuts it into 1000-ch
 
 ### rag_pipeline.py
 
-A question loop in the terminal. Each question is embedded with the same model as the chunks, ChromaDB returns the 5 closest chunks, and `llama3.2:3b` answers with a prompt that tells it to use only that context and to say so when the answer isn't there. Typing `exit` stops it.
+A question loop in the terminal. Each question is embedded with the same model as the chunks, ChromaDB returns the 3 closest chunks, and `llama3.2:3b` answers with a prompt that tells it to use only that context and to say so when the answer isn't there. Typing `exit` stops it.
 
 ### app.py
 

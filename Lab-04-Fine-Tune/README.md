@@ -119,11 +119,9 @@ The original model's answers to all six questions:
 
 ![original answers](screenshots/03-original-answers.png)
 
-Both models side by side:
+Both models side by side for the first five questions. The sixth, about a reference letter, is in the notebook: the fine-tuned model answered "A student can ask the lecturer for a reference letter or contact the university's academic support service."
 
-![comparison 1](screenshots/07-comparison.png)
-
-![comparison 2](screenshots/07b-comparison.png)
+![comparison of original and fine-tuned answers](screenshots/07-comparison.png)
 
 ![saved adapter](screenshots/09-saved-adapter.png)
 

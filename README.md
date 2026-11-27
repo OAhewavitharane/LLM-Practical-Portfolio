@@ -15,7 +15,7 @@ What I took from the module as a whole is in [Final-Reflection.md](Final-Reflect
 | [03 Tiny Transformer](Lab-03-Tiny-Transformer) | Wrote a character-level Transformer from its parts and trained it on TinyStories | PyTorch | 113,096 parameters, perplexity 4.14; layer and head experiments |
 | [04 Fine-tuning](Lab-04-Fine-Tune) | Fine-tuned Qwen2.5-0.5B-Instruct with QLoRA on 30 student-support Q&A pairs | transformers, PEFT, TRL, bitsandbytes (Colab T4) | 0.22% of the parameters trained in 42 seconds; answers went from about 100 words to one sentence |
 | [05 RAG pipeline](Lab-05-RAG-Pipeline) | Built a local assistant that answers from university PDFs and PDFs the user uploads, then compared three chunking methods | Ollama, ChromaDB, Streamlit | Answers from the NSBM guide; parent-child retrieval was the only method that got all 15 modules into the context |
-| [06 AI agents](Lab-06-AI-Agents) | Built an agent with Windows tools, SQLite memory, the Lab 5 RAG as a tool and Google Calendar (parts A to D) | LangChain, Ollama, SQLite, Google Calendar API | Right tool for all six test queries; remembers facts after a restart |
+| [06 AI agents](Lab-06-AI-Agents) | Built an agent with Windows tools, SQLite memory, the Lab 5 RAG as a tool and Google Calendar | LangChain, Ollama, SQLite, Google Calendar API | Right tool for all six test queries; remembers facts after a restart |
 
 ## Repository layout
 

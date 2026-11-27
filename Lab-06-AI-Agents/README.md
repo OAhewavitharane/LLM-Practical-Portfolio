@@ -3,7 +3,7 @@
 ## Laboratory session
 
 Lab 06, AI agents.
-I built an agent on a local model that decides when to call Python functions (tools), and added to it part by part, following parts A to D of the lab sheet: tools that work with Windows apps, memory, my Lab 5 RAG as a search tool, and Google Calendar. Part E (n8n) and the final exercise are not part of this entry.
+I built an agent on a local model that decides when to call Python functions (tools), and added to it part by part, following parts A to D of the lab sheet: tools that work with Windows apps, memory, my Lab 5 RAG as a search tool, and Google Calendar.
 
 ## Objective
 
